@@ -1,13 +1,15 @@
 BattleShipGame
 
-This Game has mainly 5 classes
+This Game has mainly 7 classes
 ./src/java/Classes
 
-•	Start:- To initiate Game
-•	Game: To generate players and assign Game borad.
-•	Board:- To generate grid and ships along with positions
-•	Ship:- for ship related arrangmenets
-•	Postition:- To maintain properties of grid (row,col) position (like Hit,Miss,Pending)
+1.	Start:- To initiate Game
+2.	Game: To generate players and assign Game borad.
+3.	Board:- To generate grid and ships along with positions
+4.	Ship:- for ship related arrangmenets
+5.	Postition:- To maintain properties of grid (row,col) position (like Hit,Miss,Pending)
+6.	RealPlayer:- player who plays the game
+7.	ComputerPlayer:- the other side computer generated player
 
 Functions:-
 
