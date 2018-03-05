@@ -1,5 +1,6 @@
 package Classes;
 
+import Interface.IPlayer;
 import enums.enums;
 import org.junit.Assert;
 import org.junit.Test;
@@ -11,7 +12,10 @@ public class GameTest {
     @Test
     public void testUpdateAlreadyTaken() throws IOException {
         String expected = "Already Taken";
-        Game game = new Game();
+
+        IPlayer player = new RealPlayer();
+        IPlayer admin  = new ComputerPlayer();
+        Game game = new Game(player, admin);
 
         File file = new File("input\\hit.txt");
         BufferedReader reader = null;
@@ -29,7 +33,9 @@ public class GameTest {
     @Test
     public void testUpdateHit() throws IOException {
         String expected = "HIT";
-        Game game = new Game();
+        IPlayer player = new RealPlayer();
+        IPlayer admin  = new ComputerPlayer();
+        Game game = new Game(player, admin);
 
         File file = new File("input\\hit.txt");
         BufferedReader reader = null;
@@ -45,7 +51,9 @@ public class GameTest {
     @Test
     public void testUpdateMiss() throws IOException {
         String expected = "MISS";
-        Game game = new Game();
+        IPlayer player = new RealPlayer();
+        IPlayer admin  = new ComputerPlayer();
+        Game game = new Game(player, admin);
 
         File file = new File("input\\miss.txt");
         BufferedReader reader = null;
@@ -61,7 +69,9 @@ public class GameTest {
     @Test
     public void testGameWin() throws IOException {
         boolean expected = true;
-        Game game = new Game();
+        IPlayer player = new RealPlayer();
+        IPlayer admin  = new ComputerPlayer();
+        Game game = new Game(player, admin);
 
         File file = new File("input\\win.txt");
         BufferedReader reader = null;
@@ -83,7 +93,9 @@ public class GameTest {
     @Test
     public void testGameLose() throws IOException {
         boolean expected = true;
-        Game game = new Game();
+        IPlayer player = new RealPlayer();
+        IPlayer admin  = new ComputerPlayer();
+        Game game = new Game(player, admin);
 
         File file = new File("input\\lose.txt");
         BufferedReader reader = null;

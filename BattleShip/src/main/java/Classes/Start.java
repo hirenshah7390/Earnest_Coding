@@ -1,4 +1,6 @@
 package Classes;
+import Interface.IPlayer;
+
 import java.util.Scanner;
 
 public class Start
@@ -7,9 +9,11 @@ public class Start
       
     public static void main(String[] args)
     {
-        Game newGame = new Game();
+        IPlayer rp = new RealPlayer();
+        IPlayer cp = new ComputerPlayer();
+        Game newGame = new Game(rp, cp);
         System.out.println("\n Press Enter to Start Game");
         reader.nextLine();
-        newGame.Start();
+        newGame.start();
     }
 }

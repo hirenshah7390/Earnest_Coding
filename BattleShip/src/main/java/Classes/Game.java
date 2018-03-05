@@ -15,21 +15,21 @@ public class Game {
 
     private static Scanner reader = new Scanner(System.in);
     private IPlayer player;
-    private IPlayer admin;
+    private IPlayer computer;
 
-    public Game() {
-        player = new Player();
-        admin = new Player(true);
+    public Game(IPlayer r, IPlayer c) {
+        player = r;
+        computer = c;
 
-        assignBoard(admin);
+        assignBoard(computer);
         //assignBoard(player);
         System.out.println("\n Generated Board...");
-        admin.getShipBoard().print(printType.ARRANGEMENT);
+        computer.getShipBoard().print(printType.ARRANGEMENT);
     }
 
     public IPlayer getPlayer(){return this.player;}
 
-    public IPlayer getAdmin() {return this.admin;}
+    public IPlayer getComputer() {return this.computer;}
 
     public void assignBoard(IPlayer p)
     {
@@ -64,7 +64,7 @@ public class Game {
         }
     }
 
-    public void Start() {
+    public void start() {
         String result = "";
         while (true) {
             System.out.println(result);
@@ -116,18 +116,18 @@ public class Game {
     public String updateStatus(int row, int col){
         player.decreaseChances();
 
-        if (admin.getShipBoard().getCoordinates()[row][col].hasShip()) {
-            if (player.getShipBoard().getCoordinates()[row][col].getStatus() == statuses.HIT)
+        if (computer.getShipBoard().getPosition()[row][col].hasShip()) {
+            if (player.getShipBoard().getPosition()[row][col].getStatus() == statuses.HIT)
                 return "Already Taken";
 
             else {
-                player.getShipBoard().getCoordinates()[row][col].setStatus(statuses.HIT);
+                player.getShipBoard().getPosition()[row][col].setStatus(statuses.HIT);
                 player.addTotalHit();
                 return "HIT";
             }
         }
         else {
-            player.getShipBoard().getCoordinates()[row][col].setStatus(statuses.MISSED);
+            player.getShipBoard().getPosition()[row][col].setStatus(statuses.MISSED);
             return "MISS";
         }
     }

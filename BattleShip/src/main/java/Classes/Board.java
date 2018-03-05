@@ -38,7 +38,7 @@ public class Board
         }
     }
 
-    public Position[][] getCoordinates(){return this.board;}
+    public Position[][] getPosition(){return this.board;}
 
     public Ship[] getShips(){ return this.ships;}
 
